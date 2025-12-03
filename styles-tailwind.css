@@ -1,0 +1,154 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Merriweather:wght@300;400;700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Tailwind base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  body {
+    @apply font-sans text-brand-text bg-brand-bg antialiased;
+    -webkit-tap-highlight-color: rgba(90, 138, 90, 0.2);
+    touch-action: manipulation;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading text-brand-heading font-semibold leading-tight tracking-wide;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+}
+
+/* Custom components */
+@layer components {
+  /* Logo */
+  .logo {
+    @apply font-serif text-brand-heading font-bold text-2xl md:text-3xl lg:text-4xl;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Navigation */
+  .nav-link {
+    @apply text-brand-text font-medium px-4 py-3 rounded-md transition-all duration-300 min-h-[44px] flex items-center justify-center;
+    -webkit-tap-highlight-color: rgba(90, 138, 90, 0.2);
+    touch-action: manipulation;
+  }
+
+  .nav-link:hover {
+    @apply bg-brand-bg-secondary text-brand-accent;
+  }
+
+  /* CTA Button */
+  .btn-cta {
+    @apply bg-gradient-to-br from-brand-accent to-brand-accent-dark text-white px-6 py-3 rounded-lg font-semibold shadow-md transition-all duration-300 min-h-[44px] flex items-center justify-center;
+    -webkit-tap-highlight-color: rgba(90, 138, 90, 0.3);
+    touch-action: manipulation;
+  }
+
+  .btn-cta:hover {
+    @apply shadow-lg transform -translate-y-0.5;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white p-6 md:p-8 rounded-2xl shadow-md border border-brand-accent/10 transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-lg transform -translate-y-2;
+  }
+
+  /* Read more link */
+  .link-read-more {
+    @apply text-brand-accent font-semibold inline-flex items-center gap-2 mt-2 transition-all duration-300 min-h-[44px] py-2;
+    -webkit-tap-highlight-color: rgba(90, 138, 90, 0.2);
+    touch-action: manipulation;
+  }
+
+  .link-read-more:hover {
+    @apply text-brand-accent-dark gap-3;
+  }
+
+  /* Burger menu */
+  .burger-menu {
+    @apply flex flex-col justify-around w-8 h-8 bg-transparent border-0 cursor-pointer p-0 z-[1001] relative;
+  }
+
+  .burger-menu span {
+    @apply w-full h-0.5 bg-brand-heading rounded-sm transition-all duration-300;
+    transform-origin: center;
+  }
+
+  .burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  .burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  /* Mobile navigation */
+  .mobile-nav {
+    @apply fixed top-0 left-0 w-full h-screen bg-brand-bg flex-col items-stretch justify-start p-20 md:p-0 gap-0 z-[1000];
+    @apply transform -translate-x-full opacity-0 invisible transition-all duration-300;
+    @apply overflow-y-auto shadow-2xl;
+  }
+
+  .mobile-nav.nav-open {
+    @apply translate-x-0 opacity-100 visible;
+  }
+
+  /* Desktop navigation */
+  @media (min-width: 768px) {
+    .mobile-nav {
+      @apply static translate-x-0 opacity-100 visible h-auto w-auto p-0 bg-transparent shadow-none flex-row flex-wrap;
+    }
+  }
+
+  /* Icon container */
+  .icon-container {
+    @apply w-24 h-24 md:w-32 md:h-32 mx-auto mb-6 text-brand-accent;
+  }
+
+  /* Tagline */
+  .tagline {
+    @apply text-center italic text-brand-accent text-base md:text-lg font-light tracking-wide;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  @apply overflow-hidden;
+}
+
+
+
+
